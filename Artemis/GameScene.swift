@@ -62,7 +62,7 @@ class GameScene: SKScene {
         addDrop()
         if drops.count > 1 {
             for i in stride(from: drops.count-1, to: -1, by: -1) {
-                if getBottomY(sprite: drops[i]) < getTopY(sprite: cup) && (getLeftX(sprite: drops[i]) > getRightX(sprite: cup) && getRightX(sprite: drops[i]) < getLeftX(sprite: cup)) {
+                if getBottomY(sprite: drops[i]) < getTopY(sprite: cup) && (getLeftX(sprite: drops[i]) > getLeftX(sprite: cup) && getRightX(sprite: drops[i]) < getRightX(sprite: cup)) {
                     drops[i].removeFromParent()
                     drops.remove(at: i)
                 }
