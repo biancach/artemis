@@ -16,12 +16,33 @@ class GameScene: SKScene {
 
     var dropCount: Int = 0
     var drops:  Array<SKSpriteNode> = Array()
+    var volume: Int = 0
+    var volumeLabel: UILabel!
+    var underwears: [SKSpriteNode] = []
     
     override func didMove(to view: SKView) {
         background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         self.addChild(background)
         
-        cup.position = CGPoint(x: size.width/2, y: size.height/4)
+        for i in 0...4 {
+            let underwear = SKSpriteNode(imageNamed: "underwear.png")
+            underwear.position = CGPoint(x: (CGFloat(i+1)) * size.width / 5 - underwear.size.width / 2, y: 5 * size.height / 6)
+            underwear.zPosition = 1
+            addChild(underwear)
+            underwears.append(underwear)
+        }
+        
+        volumeLabel = UILabel()
+//        volumeLabel.center = CGPoint(x: frame.size.width / 2, y: 3 * frame.size.height / 4)
+        volumeLabel.center = CGPoint(x: 0, y: 0)
+
+        volumeLabel.textAlignment = NSTextAlignment.left
+        volumeLabel.text = String(volume) + " mL"
+
+        volumeLabel.textColor = SKColor.white
+        self.view?.addSubview(volumeLabel)
+        
+        cup.position = CGPoint(x: size.width / 2, y: size.height / 4)
         cup.zPosition = 1
         addChild(cup)
     }
@@ -65,6 +86,7 @@ class GameScene: SKScene {
                 if getBottomY(sprite: drops[i]) < getTopY(sprite: cup) && (getLeftX(sprite: drops[i]) > getLeftX(sprite: cup) && getRightX(sprite: drops[i]) < getRightX(sprite: cup)) {
                     drops[i].removeFromParent()
                     drops.remove(at: i)
+                    volume += 1
                 }
             }
         }
@@ -115,7 +137,7 @@ class GameScene: SKScene {
         addChild(drop)
         
         // Determine speed of the monster
-        let actualDuration = random(min: CGFloat(2.0), max: CGFloat(4.0))
+        let actualDuration = random(min: CGFloat(4.0), max: CGFloat(8.0))
         
         // Create the actions
         let actionMove = SKAction.move(to: CGPoint(x: actualX, y: -drop.size.height/2), duration: TimeInterval(actualDuration))
