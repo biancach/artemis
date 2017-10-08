@@ -32,35 +32,58 @@ class GameScene: SKScene {
         
         for touch in touches {
             if touch.location(in: background).x <= 0 {
-                let newPos = CGPoint(x: cup.position.x - 50, y: cup.position.y)
-                let actionMove = SKAction.move(to: newPos, duration: 0.1)
-                cup.run(actionMove)
+                if cup.position.x - 50 >= cup.size.width/2 {
+                    let newPos = CGPoint(x: cup.position.x - 50, y: cup.position.y)
+                    let actionMove = SKAction.move(to: newPos, duration: 0.1)
+                    cup.run(actionMove)
+                } else {
+                    let newPos = CGPoint(x: cup.size.width/2, y: cup.position.y)
+                    let actionMove = SKAction.move(to: newPos, duration: 0.1)
+                    cup.run(actionMove)
+                }
             } else {
-                let newPos = CGPoint(x: cup.position.x + 50, y: cup.position.y)
-                let actionMove = SKAction.move(to: newPos, duration: 0.1)
-                cup.run(actionMove)
+                if cup.position.x + 50 <= size.width - cup.size.width/2 {
+                    let newPos = CGPoint(x: cup.position.x + 50, y: cup.position.y)
+                    let actionMove = SKAction.move(to: newPos, duration: 0.1)
+                    cup.run(actionMove)
+                } else {
+                    let newPos = CGPoint(x: size.width - cup.size.width/2, y: cup.position.y)
+                    let actionMove = SKAction.move(to: newPos, duration: 0.1)
+                    cup.run(actionMove)
+                }
             }
 
             
         }
     }
     
-
-    func touchDown(atPoint pos : CGPoint) {
-        addDrop()
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-
-    }
-    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         addDrop()
+        if drops.count > 1 {
+            for i in stride(from: drops.count-1, to: -1, by: -1) {
+                if getBottomY(sprite: drops[i]) < getTopY(sprite: cup) {
+                    drops[i].removeFromParent()
+                    drops.remove(at: i)
+                }
+            }
+        }
+    }
+    
+    func getLeftX(sprite: SKSpriteNode) -> Float {
+        return Float(sprite.position.x - sprite.size.width/2)
+    }
+    
+    func getRightX(sprite: SKSpriteNode) -> Float {
+        return Float(sprite.position.x + sprite.size.width/2)
+    }
+    
+    func getTopY(sprite: SKSpriteNode) -> Float {
+        return Float(sprite.position.y + sprite.size.width/2)
+    }
+    
+    func getBottomY(sprite: SKSpriteNode) -> Float {
+        return Float(sprite.position.y - sprite.size.width/2)
     }
     
     func random() -> CGFloat {
@@ -88,7 +111,7 @@ class GameScene: SKScene {
         // and along a random position along the X axis as calculated above
         drop.position = CGPoint(x: actualX, y: size.height + drop.size.height/2)
         
-        // Add the monster to the scene
+        // Add the drop to the scene
         addChild(drop)
         
         // Determine speed of the monster

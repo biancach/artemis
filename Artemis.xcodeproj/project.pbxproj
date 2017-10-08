@@ -16,9 +16,6 @@
 		A649CCE41F88DDAB0070668E /* ArtemisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A649CCE31F88DDAB0070668E /* ArtemisTests.swift */; };
 		A649CCEF1F88DDAB0070668E /* ArtemisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A649CCEE1F88DDAB0070668E /* ArtemisUITests.swift */; };
 		A649CD0B1F88E8940070668E /* BackgroundNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A649CD0A1F88E8940070668E /* BackgroundNode.swift */; };
-		A649CD0D1F8970C90070668E /* drop_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A649CD0C1F8970C90070668E /* drop_sound.mp3 */; };
-		A649CD0F1F897C300070668E /* art_background.png in Resources */ = {isa = PBXBuildFile; fileRef = A649CD0E1F897C300070668E /* art_background.png */; };
-		A649CD111F897DEE0070668E /* small_drop.png in Resources */ = {isa = PBXBuildFile; fileRef = A649CD101F897DEE0070668E /* small_drop.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +51,6 @@
 		A649CCEE1F88DDAB0070668E /* ArtemisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtemisUITests.swift; sourceTree = "<group>"; };
 		A649CCF01F88DDAB0070668E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A649CD0A1F88E8940070668E /* BackgroundNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundNode.swift; sourceTree = "<group>"; };
-		A649CD0C1F8970C90070668E /* drop_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drop_sound.mp3; sourceTree = "<group>"; };
-		A649CD0E1F897C300070668E /* art_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = art_background.png; sourceTree = "<group>"; };
-		A649CD101F897DEE0070668E /* small_drop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_drop.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +106,9 @@
 				A649CCD01F88DDAB0070668E /* GameViewController.swift */,
 				A649CCD21F88DDAB0070668E /* Main.storyboard */,
 				A649CCD51F88DDAB0070668E /* Assets.xcassets */,
-				A649CD0E1F897C300070668E /* art_background.png */,
 				A649CD0A1F88E8940070668E /* BackgroundNode.swift */,
 				A649CCD71F88DDAB0070668E /* LaunchScreen.storyboard */,
-				A649CD101F897DEE0070668E /* small_drop.png */,
 				A649CCDA1F88DDAB0070668E /* Info.plist */,
-				A649CD0C1F8970C90070668E /* drop_sound.mp3 */,
 			);
 			path = Artemis;
 			sourceTree = "<group>";
@@ -247,10 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A649CD111F897DEE0070668E /* small_drop.png in Resources */,
 				A649CCD41F88DDAB0070668E /* Main.storyboard in Resources */,
-				A649CD0D1F8970C90070668E /* drop_sound.mp3 in Resources */,
-				A649CD0F1F897C300070668E /* art_background.png in Resources */,
 				A649CCD61F88DDAB0070668E /* Assets.xcassets in Resources */,
 				A649CCD91F88DDAB0070668E /* LaunchScreen.storyboard in Resources */,
 			);
@@ -525,6 +513,7 @@
 				A649CCF51F88DDAB0070668E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A649CCF61F88DDAB0070668E /* Build configuration list for PBXNativeTarget "ArtemisTests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +522,7 @@
 				A649CCF81F88DDAB0070668E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A649CCF91F88DDAB0070668E /* Build configuration list for PBXNativeTarget "ArtemisUITests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +531,7 @@
 				A649CCFB1F88DDAB0070668E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
